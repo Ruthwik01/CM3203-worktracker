@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="nofollow" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+<center><a href="{% url 'dashboard' %}" class="btn btn-dark">Go Back</a>
+
+<div>
+  <form method="POST">
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{ task.title }}"?</p>
+    <button type="submit" class="btn-dark">Delete</button>
+  </form>
+</div>
+</center>

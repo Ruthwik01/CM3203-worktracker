@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="nofollow" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+<div class="container py-3">
+  <center><h2>Here are your tasks for the day!</h2>
+  <p><a href="{% url 'task_add' %}" class="btn btn-dark">Add a Task</a></p>
+  <div>
+    {% for task in tsk %}
+    <div>
+      {% if task.accomplished %}
+        <p style="text-decoration: line-through; display: inline;">{{ task.title }}</p>
+      {% else %}
+        <p style="display: inline;">{{ task.title }}</p>
+      {% endif %}
+      {% if task.taskpriority == 'High Priority' %}
+        <span class="badge bg-danger">{{ task.taskpriority }}</span>
+      {% endif %}
+      {% if task.taskpriority == 'Medium Priority' %}
+        <span class="badge bg-info">{{ task.taskpriority }}</span>
+      {% endif %}
+      {% if task.taskpriority == 'Low Priority' %}
+        <span class="badge bg-success">{{ task.taskpriority }}</span>
+      {% endif %}
+      <div>
+        <a href="{% url 'task' task.id %}" class="btn btn-dark">See</a>
+        <a href="{% url 'task-edit' task.id %}" class="btn btn-dark">Edit</a>
+        <a href="{% url 'task-delete' task.id %}" class="btn btn-dark">Delete</a>
+      </div>
+    </div>
+    {% empty %}
+    <p>No tasks yet!</p>
+    {% endfor %}
+  </div></center>
+</div>

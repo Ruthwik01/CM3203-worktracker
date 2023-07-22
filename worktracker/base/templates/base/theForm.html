@@ -1,0 +1,10 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="nofollow" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+<h3> Add a Task</h3>
+<a href="{% url 'dashboard' %}" class="btn btn-dark">Back</a>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    {{form.as_p}}
+<button type="submit" class="btn btn-dark" value="Add">Add</button>
+</form>
