@@ -1,0 +1,18 @@
+<header>
+  <nav>
+    <ul style="list-style: none;">
+      <div style="display: inline-block;"><li><a href="{% url 'home' %}" class="btn btn-dark">Home</a></li></div>
+      {% if request.user.is_authenticated %}
+      <div style="display: inline-block;"><li><a href="{% url 'dashboard' %}" class="btn btn-dark">Dashboard</a></li></div>
+      {% endif %}
+      {% if request.user.is_authenticated %}
+        <p>{{request.user}}</p>
+        <div style="float: right;"><a href="{% url 'logout' %}" class="btn btn-dark">Logout</a></div>
+      {% else %}
+        <div style="float: right;"><a href="{% url 'login' %}" class="btn btn-dark">Login</a></div>
+      {% endif %}
+      <div style="float: right;"><a href="{% url 'register' %}" class="btn btn-dark">Register</a>/</div>
+    </ul>
+    <hr>
+  </nav>
+</header>
